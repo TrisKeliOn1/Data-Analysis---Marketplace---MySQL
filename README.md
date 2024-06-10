@@ -6,7 +6,7 @@
   <a href="#lista-de-análise">Lista de Análise</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<br>
   <a href="#abordagem-usada">Abordagem Usada</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-perguntas-de-negócios-para-responder">Perguntas de negócios</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-cálculos-de-receita-e-lucro">Cálculos de Receita e Lucro</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-cálculos-de-receita-e-lucro">Cálculos de Receita e Lucro</a>
 </p>
 
 ## 🚀 Sobre
