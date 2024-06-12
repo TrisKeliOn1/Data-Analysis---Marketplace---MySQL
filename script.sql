@@ -48,3 +48,27 @@ SELECT date, MONTHNAME(date) FROM sales;
 ALTER TABLE sales ADD COLUMN month_name VARCHAR(10);
 
 UPDATE sales SET month_name  = MONTHNAME(date);
+
+SELECT DISTINCT branch FROM sales;
+
+SELECT DISTINCT city, branch FROM sales;
+
+SELECT DISTINCT product_line FROM sales;
+
+SELECT payment, 
+	COUNT(payment) AS cnt
+FROM sales 
+GROUP BY payment
+ORDER BY cnt DESC;
+
+SELECT product_line, 
+	COUNT(product_line) AS cnt
+FROM sales 
+GROUP BY product_line
+ORDER BY cnt DESC;
+
+SELECT month_name AS month,
+	SUM(total) AS total_revenue
+FROM sales 
+GROUP BY month_name
+ORDER BY total_revenue DESC;
