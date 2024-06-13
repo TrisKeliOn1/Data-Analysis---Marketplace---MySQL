@@ -136,3 +136,18 @@ SELECT
 FROM sales
 GROUP BY product_line
 ORDER BY avg_rating DESC;
+
+SELECT
+	time_of_day,
+	COUNT(*) AS total_sales
+FROM sales
+WHERE day_name = "Sunday"
+GROUP BY time_of_day 
+ORDER BY total_sales DESC;
+
+SELECT
+	customer_type,
+	SUM(total) AS total_revenue
+FROM sales
+GROUP BY customer_type
+ORDER BY total_revenue;
