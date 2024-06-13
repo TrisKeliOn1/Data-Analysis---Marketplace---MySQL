@@ -72,3 +72,67 @@ SELECT month_name AS month,
 FROM sales 
 GROUP BY month_name
 ORDER BY total_revenue DESC;
+
+SELECT
+	month_name AS month,
+	SUM(cogs) AS cogs
+FROM sales
+GROUP BY month_name 
+ORDER BY cogs DESC;
+
+SELECT
+	product_line,
+	SUM(total) as total_revenue
+FROM sales
+GROUP BY product_line
+ORDER BY total_revenue DESC;
+
+SELECT
+	branch,
+	city,
+	SUM(total) AS total_revenue
+FROM sales
+GROUP BY city, branch 
+ORDER BY total_revenue DESC;
+
+SELECT
+	product_line,
+	AVG(tax_pct) as avg_tax
+FROM sales
+GROUP BY product_line
+ORDER BY avg_tax DESC;
+
+SELECT 
+	AVG(quantity) AS avg_qnty
+FROM sales;
+
+SELECT
+	product_line,
+	CASE
+		WHEN AVG(quantity) > 6 THEN "Good"
+        ELSE "Bad"
+    END AS remark
+FROM sales
+GROUP BY product_line;
+
+SELECT 
+	branch, 
+    SUM(quantity) AS qnty
+FROM sales
+GROUP BY branch
+HAVING SUM(quantity) > (SELECT AVG(quantity) FROM sales);
+
+SELECT
+	gender,
+    product_line,
+    COUNT(gender) AS total_cnt
+FROM sales
+GROUP BY gender, product_line
+ORDER BY total_cnt DESC;
+
+SELECT
+	ROUND(AVG(rating), 2) as avg_rating,
+    product_line
+FROM sales
+GROUP BY product_line
+ORDER BY avg_rating DESC;
