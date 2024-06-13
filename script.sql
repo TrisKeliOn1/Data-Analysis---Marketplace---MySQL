@@ -49,9 +49,13 @@ ALTER TABLE sales ADD COLUMN month_name VARCHAR(10);
 
 UPDATE sales SET month_name  = MONTHNAME(date);
 
+-- Genérico	
+
 SELECT DISTINCT branch FROM sales;
 
 SELECT DISTINCT city, branch FROM sales;
+
+-- Produto
 
 SELECT DISTINCT product_line FROM sales;
 
@@ -137,6 +141,8 @@ FROM sales
 GROUP BY product_line
 ORDER BY avg_rating DESC;
 
+-- Vendas
+
 SELECT
 	time_of_day,
 	COUNT(*) AS total_sales
@@ -165,3 +171,72 @@ SELECT
 FROM sales
 GROUP BY customer_type
 ORDER BY total_tax;
+
+-- Clientes
+
+SELECT
+	DISTINCT customer_type
+FROM sales;
+
+SELECT
+	DISTINCT payment
+FROM sales;
+
+
+SELECT
+	customer_type,
+	count(*) as count
+FROM sales
+GROUP BY customer_type
+ORDER BY count DESC;
+
+SELECT
+	customer_type,
+    COUNT(*)
+FROM sales
+GROUP BY customer_type;
+
+SELECT
+	gender,
+	COUNT(*) as gender_cnt
+FROM sales
+GROUP BY gender
+ORDER BY gender_cnt DESC;
+
+SELECT
+	gender,
+	COUNT(*) as gender_cnt
+FROM sales
+WHERE branch = "C"
+GROUP BY gender
+ORDER BY gender_cnt DESC;
+
+SELECT
+	time_of_day,
+	AVG(rating) AS avg_rating
+FROM sales
+GROUP BY time_of_day
+ORDER BY avg_rating DESC;
+
+SELECT
+	time_of_day,
+	AVG(rating) AS avg_rating
+FROM sales
+WHERE branch = "A"
+GROUP BY time_of_day
+ORDER BY avg_rating DESC;
+
+SELECT
+	day_name,
+	AVG(rating) AS avg_rating
+FROM sales
+GROUP BY day_name 
+ORDER BY avg_rating DESC;
+
+SELECT 
+	day_name,
+	COUNT(day_name) total_sales
+FROM sales
+WHERE branch = "C"
+GROUP BY day_name
+ORDER BY total_sales DESC;
